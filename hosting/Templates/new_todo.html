@@ -1,0 +1,58 @@
+{%load static%} 
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>TODO</title>
+        {% comment %} <link rel="stylesheet" href="{%static 'css/register.css'%}"> {% endcomment %}
+        <link rel="stylesheet" href="{%static 'css/home.css'%}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/home.css'%}">
+        <link rel="stylesheet" href="{% static 'css/base.css'%}">
+        {% comment %} <link rel="stylesheet" href="{%static 'css/register.css'%}"> {% endcomment %}
+
+    </head>
+    <body>
+        <body style="background-image:url(../static/images/blackboard.jpg)">
+        <div id="container" >
+            <div id="header" style="background-image:url(../static/images/home_background.jpg)">
+                <i>Blackboard</i>
+            </div>
+            <div class="menu">
+                <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
+                <a class="active" href="home"><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>{{user.username}}</a>
+                <a href="logout"><i class="fa fa-fw fa-user"></i>LogOut</a>
+            </div>
+            <div id="side_navigation">
+                <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
+                <a href="search_book" class="no_cross">Search A Book</a>
+                <a href="todo_fn" class="no_cross">Add ToDo</a>
+                <a href="pyq" class="no_cross">Previous Year Questions</a>
+                <a href="sm_pg1" class="no_cross">Intra College Social Media</a>
+                <a href="addbook" class="no_cross active">Lend A Book</a>
+            </div>
+
+        <div id="container">
+        <h1>Blackboard    <a href = 'home' ><img class="img_fade" src="{% static 'images/back.PNG' %}" height=55px></a></h1>
+        <h2>TODO</h2>
+            <div id="details_box" >
+            <form action="/todo_fn" id="stud_deet" method="post">
+                {% csrf_token %}
+                <label for = "reminder_date", class = "labels">Reminder Date and Time</label>
+                <input type ='datetime-local' class='inputs' name='reminder_date' id='reminder_date'>
+                                
+                <br><br>
+
+                <label for = 'todo_text' class='labels'>Enter your Reminder: </label>
+                <input type= "text" class="inputs" name = 'todo_text' width = 75 px, height= 250 px>
+
+                <br>
+
+                <button type "submit"> Add reminder </button>
+
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

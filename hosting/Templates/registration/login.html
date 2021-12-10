@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{%load static%}
+
+
+<html lang="en">
+    <head>
+        <title>LogIn</title>
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css'%}">
+        <link rel="stylesheet" href="{%static 'css/register.css'%}">
+        <link rel="stylesheet" href="{%static 'css/overwrite.css'%}">
+        <link rel="stylesheet" href="{%static 'css/button.css'%}">
+    </head>
+        <body>
+            <div id = "details_box">
+            <div id="header" style="background-image:url(../static/images/home_background.jpg);">
+                <i>Blackboard</i>
+            </div>
+            <div id="container">
+                {% comment %} </div> {% endcomment %}
+                <h1>Login Here</h1>
+                <form method="post" class="form-group">
+                    {% csrf_token%}
+                    {{form}}
+                    {% comment %} <button type="submit" class="login">Login </button> {% endcomment %}
+                    <button type="submit" class="neon-button">Login </button>
+                    <p>Don't have an account? Create one <a href="/register"> here</a></p>
+                </form>
+            </div>
+        
+        <script src="js/home.js"></script>
+            
+            
+    </body>
+</html>

@@ -1,0 +1,98 @@
+/**
+* Template Name: Green - v4.6.0
+* Template URL: https://bootstrapmade.com/green-free-one-page-bootstrap-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #444444;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #5cb874;
+  }
+  
+  a:hover {
+    color: #80c792;
+    text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", sans-serif;
+  }
+  
+  
+  /*--------------------------------------------------------------
+  # About Us
+  --------------------------------------------------------------*/
+  .about .content h3 {
+    font-weight: 700;
+    font-size: 28px;
+  }
+  .about .content ul {
+    list-style: none;
+    padding: 0;
+  }
+  .about .content ul li {
+    padding-bottom: 10px;
+  }
+  .about .content ul i {
+    font-size: 20px;
+    padding-right: 4px;
+    color: #5cb874;
+  }
+  .about .content p:last-child {
+    margin-bottom: 0;
+  }
+
+  /*--------------------------------------------------------------
+# Team
+--------------------------------------------------------------*/
+.team .member {
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 12px 0px rgba(34, 34, 34, 0.07);
+    padding: 30px 20px;
+    background: #fff;
+  }
+  .team .member img {
+    max-width: 60%;
+    border-radius: 50%;
+    margin: 0 0 30px 0;
+  }
+  .team .member h4 {
+    font-weight: 700; 
+    margin-bottom: 2px;
+    font-size: 18px;
+  }
+  .team .member span {
+    font-style: italic;
+    display: block;
+    font-size: 13px;
+  }
+  .team .member p {
+    padding-top: 10px;
+    font-size: 14px;
+    font-style: italic;
+    color: #aaaaaa;
+  }
+  .team .member .social {
+    margin-top: 15px;
+  }
+  .team .member .social a {
+    color: #919191;
+    transition: 0.3s;
+  }
+  .team .member .social a:hover {
+    color: #5cb874;
+  }
+  .team .member .social i {
+    font-size: 18px;
+    margin: 0 2px;
+  }

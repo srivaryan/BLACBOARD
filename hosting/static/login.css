@@ -32,12 +32,12 @@ body{
     visibility:hidden;
 }
 .btn{
-    background-color:rgb(153, 18, 153);
+    background-color:rgb(0, 24, 104);
     font-weight:bold;
     font-size:20px;
     color:white;
     height:40px;
-    outline:2px solid rgb(153, 18, 153);
+    outline:2px solid rgb(0, 24, 104);
     outline-offset:-2px;
     transition: outline-offset 0.25ms ease;
 }

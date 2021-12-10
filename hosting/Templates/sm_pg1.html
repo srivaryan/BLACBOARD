@@ -1,0 +1,43 @@
+{% load static %} 
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Social Media Portal</title>
+        <!---External CSS Link-->
+        {% comment %} <link rel="stylesheet" href="{% static 'css/base.css'%}"> {% endcomment %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        {% comment %} <link rel="stylesheet" href="{% static 'css/home.css'%}"> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'css/sm_pg1.css'%}">
+    </head>
+        <body style="background-image:url(../static/images/blackboard.jpg)">
+        <div id="container">
+            {% comment %} <div id="header" style="background-image:url(../static/images/home_background.jpg)">
+                <i> Blackboard</i> {% endcomment %}
+            <div class="menu">
+                <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
+                <a class="" href="home"><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>{{user.username}}</a>
+                <a href="logout"><i class="fa fa-fw fa-user"></i>LogOut</a>
+            </div>
+            <div id="header" style="background-image:url(../static/images/home_background.jpg)">
+                <i> Blackboard</i>
+            </div>
+            <div id="side_navigation">
+                <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
+                <a href="search_book" class="no_cross">Search A Book</a>
+                <a href="todo_fn" class="no_cross">Add ToDo</a>
+                <a href="pyq" class="no_cross">Previous Year Questions</a>
+                <a href="sm_pg1" class="no_cross active">Intra College Social Media</a>
+                <a href="addbook" class="no_cross">Lend A Book</a>
+                <a href="book_transaction" class="no_cross">View Book Transactions</a>
+
+            </div>
+            <div id="content">              
+            <br><br>
+                <button type "button" class ='rofl'><a href = "sm_pg2" > What are you feeling like? Share with others too!!</a></button>
+                <button type "button" class = 'lmao'><a href = "sm_post"> Scroll through lives of your peers</a></button>
+            </div>
+        <script src="{% static 'js/home.js' %}"></script>
+        <script src="{% static 'js/book.js' %}"></script>
+    </body>
+</html> 

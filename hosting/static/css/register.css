@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
 body{
     background-color:black;
     position:relative;
@@ -6,16 +7,19 @@ body{
     background-color:rgb(44, 39, 39);
     position: absolute;
     top:100px;
-    left:150px;
+    /* left:150px; */
     border-radius:5px;
     color:white;
     padding:15px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+    font-family:'Patua One', cursive;
     font-size:20px;
     
 }
-.label{
+.labels{
     font-size:18px;
+}
+.select{
+    height:22px;
 }
 .branch{
     font-weight:normal;
@@ -44,7 +48,7 @@ body{
     font-size:20px;
     color:white;
     height:40px;
-    outline:2px solid rgb(153, 18, 153);
+    /* outline:2px solid rgb(153, 18, 153); */
     outline-offset:-2px;
     transition: outline-offset 0.25ms ease;
 }

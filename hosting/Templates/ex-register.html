@@ -1,0 +1,62 @@
+{%load static%} 
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Sign Up and Registeration</title>
+        <!--External CSS Link-->
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css'%}">
+        <link rel="stylesheet" href="{%static 'css/register.css'%}">
+        <link rel="stylesheet" href="{%static 'css/overwrite.css'%}">
+    </head>
+    {% comment %} <body> {% endcomment %}
+{% comment %} 
+        <link rel="stylesheet" href="{% static 'css/base.css'%}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/home.css'%}"> {% endcomment %}
+    <body>
+        {% comment %} <body style="background-image:url(../static/images/blackboard.jpg)"> {% endcomment %}
+        <div id="container" >
+            <div id = "details_box">
+            <div id="header" style="background-image:url(../static/images/home_background.jpg)">
+        {% comment %} <i style="font-size:20 px";>Blackboard</i> {% endcomment %}
+        <i>Blackboard</i>
+            </div> 
+                <form action="register" id="stud_deet" method="post">
+                    {% csrf_token %}
+                    {{form}}
+                    <button type="submit" class="btn">Register</button>
+                    <p>Already have an account? Login <a href="login"> here</a>
+                    
+               </form>
+                    {% comment %} <script>
+                    function check_deets(){
+                        var branch=document.getElementById("branch").value;
+                        alert("hi");                   
+                        if (branch=="CSE" || branch=="ECE" || branch=="EEE"){
+                            if (document.getElementById("ps1").value==document.getElementById("ps2").value)
+                            {
+                                
+                                if(/\d/.test(document.getElementById("ps1").value)){
+                                    document.getElementById("submit_btn").click();
+                                }
+                                else{
+                                   alert("Password must contain one digit");
+                                }
+                            }
+                            else{
+                                alert("passwords do not match");
+                            }                                                                            
+
+                        }
+                        else{
+                            alert("Please select a valid branch");
+                        }
+                    }
+                </script> {% endcomment %}
+
+            </div>
+        </div>
+    </body>
+</html>

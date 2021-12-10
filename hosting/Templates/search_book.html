@@ -1,43 +1,76 @@
-{%load static%}
 <!doctype html>
+{%load static%}
+
 <html lang="en">
     <head>
         <title>Search A Book</title>
         <!---External CSS Link-->
-        <link rel="stylesheet" href="{% static 'base.css'%}">
+        <link rel="stylesheet" href="{% static 'css/base.css'%}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{% static 'home.css'%}">
-        <link rel="stylesheet" href="{% static 'book_search.css'%}">
+        <link rel="stylesheet" href="{% static 'css/home.css'%}">
+        <link rel="stylesheet" href="{% static 'css/book_search_2.css'%}">
     </head>
     <body>
         <div id="container">
-            <div id="header">
-                <i>Blackboard</i>
-            </div>
-            <div class="menu">
+            
+            <div class="menu">  
                 <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
-                <a  href="home.html"><i class="fa fa-fw fa-home"></i>Home</a>
-                <a href="#"><i class="fa fa-fw fa-key"></i>Username</a>
-                <a href="base.html"><i class="fa fa-fw fa-user"></i>LogOut</a>
+                <a  href="home"><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>{{user.username}}</a>
+                <a href="logout"><i class="fa fa-fw fa-user"></i>LogOut</a>
             </div>
             <div id="side_navigation">
                 <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
-                <a href="#" class="no_cross active">Book Exchange</a>
-                <a href="#" class="no_cross">Concern Redressal</a>
-                <a href="#" class="no_cross">Previous Year Questions</a>
+                <a href="search_book" class="no_cross active">Search A Book</a>
+                <a href="/todo_fn" class="no_cross">Add ToDo</a>
+                <a href="pyq" class="no_cross">Previous Year Questions</a>
+                <a href="sm_pg1" class="no_cross">Intra College Social Media</a>
+                <a href="addbook" class="no_cross">Lend A Book</a>
+                <a href="book_transaction" class="no_cross">View Book Transactions</a>
+
             </div>
             <div id="content_main">  
-                <div class="container container-padding50">
-                    <input type="text" class="js-userinput container-textinput" value="Type what you want to search"/>
-                    <button class="js-go container-button">Go!</button>
-                    
-                </div>            
+                <form action="search_book" method="POST">  {% csrf_token %}
+                    <input name="searched" type="text" id="search_bar" class="js-userinput container-textinput" onclick="document.getElementById('search_bar').value=' '" value="Type what you want to search"/><br><br>
+                    <label for="genre" class="labels filter">Filter Genre</label>
+                    <select name="genre" class="inputs drop_down">
+                        <option value="NF">Non-Fiction</option>
+                        <option value="F">Fiction</option>
+                        <option value="Th">Thriller</option>
+                        <option value="AA">Action and Adventure</option>
+                        <option value="C">Comic</option>
+                        <option value="BG">Biographies</option>
+                        <option value="CLB">College Books</option>
+                    </select>
+                <button type="submit" class="js-go container-button search_btn" >Go!</button>
+                </form> 
+                <div id="result" class="content" style="height:100%; width:100%; ">
+                        
+                    {% for result in bk %}
+                    <div id="book" class="books" name="{{result.id}}">
+                         <p>Name: {{result.name}} </p>
+                         {% for author in result.author.all %}
+                         <p>Author: {{author.aname}}</p>
+                         {% endfor %}
+                         
+                         <p>Genre: {{result.genre}}</p>
+                         <p>To borrow the book click <a href="/books/{{result.id}}/"   style="text-decoration:none;  font-weight:bold; color:white; text-decoration:none;" > here</a></p>
+                         
+                    </div>
+                    {% endfor %}
+                </div>        
 
             </div>
             
             
 
         </div>
-        <script src="../js/home.js"></script>
+        <script>
+            function send_data(ev){
+                console.log(ev)
+            }
+        </script>
+        <script src="{% static 'js/home.js' %}"></script>
+        <script src="{% static 'js/book.js' %}"></script>
     </body>
 </html>

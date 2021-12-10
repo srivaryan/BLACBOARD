@@ -1,0 +1,139 @@
+{% comment %} {%load static%}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Previous Year Questions</title>
+        <!---External CSS Link-->
+        <link rel="stylesheet" href="{% static 'base.css'%}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'home.css'%}">
+        <link rel="stylesheet" href="{% static 'book_search.css'%}">
+    </head>
+    <body>
+        <div id="container"> 
+            <div id="header">
+                <i>Blackboard</i>
+            </div>
+            <div class="menu">
+                <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
+                <a  href="home.html"><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>Username</a>
+                <a href=" "><i class="fa fa-fw fa-user"></i>LogOut</a>
+            </div>
+            <div id="side_navigation">
+                <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
+                <a href="#" class="no_cross active">Book Exchange</a>
+                <a href="#" class="no_cross">Concern Redressal</a>
+                <a href="#" class="no_cross">Previous Year Questions</a>
+            </div>
+            <div class="content">  
+                <div class="container container-padding50">
+                    <input type="text" id="search_bar" class="js-userinput container-textinput" onclick="document.getElementById('search_bar').value=' '" value="Type what you want to search"/>
+                    <button class="js-go container-button" onclick="search()">Go!</button>
+                    <div id="result" class="content"></div>
+                    
+                </div>            
+
+            </div>
+            
+            
+
+        </div>
+        <script src="{% static '/js/home.js' %}" type="text/javascript"></script> 
+        <script src="{% static '/js/pyq.js' %}" type="text/javascript"></script> 
+        {% comment %} <script src="../js/home.js"></script>
+        <script src="../js/pyq.js"></script> {% endcomment %}
+    {% comment %} </body> {% endcomment %}
+{% comment %} </html> {% endcomment %} 
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>Previous Year Questions</title>
+        <!---External CSS Link-->
+        <link rel="stylesheet" href="{%static 'css/base.css'%}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{%static 'css/home.css'%}">
+        <link rel="stylesheet" href="{%static 'css/book_search.css'%}">
+    </head>
+    <body style="background-image:url(../static/images/blackboard.jpg)">
+        <div id="container" >
+            <div id="header" style="background-image:url(../static/images/home_background.jpg)">
+                <i>Blackboard</i>
+            </div>
+            <div class="menu">
+                <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
+                <a  href="home"><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>{{user.username}}</a>
+                <a href="logout"><i class="fa fa-fw fa-user"></i>LogOut</a>
+                
+            </div>
+            <div id="side_navigation">
+                <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
+                <a href="search_book" class="no_cross">Search A Book</a>
+                <a href="todo_fn" class="no_cross">Add ToDo</a>
+                <a href="pyq" class="no_cross active">Previous Year Questions</a>
+                <a href="sm_pg1" class="no_cross">Intra College Social Media</a>
+                <a href="addbook" class="no_cross">Lend A Book</a>
+                <a href="book_transaction" class="no_cross">View Book Transactions</a>
+
+            </div>
+            <div class="content">  
+                <div class="container container-padding50">
+                    <form action="{% url 'pyq' %}" method="POST">  {% csrf_token %}
+                        <input name="searched" type="text" id="search_bar" class="js-userinput container-textinput" onclick="document.getElementById('search_bar').value=' '" value="Type what you want to search"/>
+                    <button class="js-go container-button" onclick="search()">Go!</button>
+                    </form>
+                    
+                    <div id="result" class="content" style="height:100%; width:100%; color:white;">
+
+                <ul>
+                    <li>PROBABLITY AND STATISTICS	- MAL 241</li>
+                    <li>ANALOG ELECTRONICS	-ECB 206</li>
+                    <li>DISCRETE STRUCTURES	-CSL 201</li>
+                    <li>DATABASE MANAGEMENT SYSTEM	-CSB 202</li>
+                    <li>SIGNALS AND SYSTEM	-ECB 204</li>
+                    <li>SYSTEM PROGRAMMING	-CSL 203</li>
+                    <li>SOLID STATE DEVICES	-ECB 201</li>
+                    <li>NETWORK ANALYSIS AND SYNTHESIS	-EEL 201</li>
+                    <li>DIGITAL ELECTRONICS	-ECB 202</li>
+                    <li>ELECTROMANGNETIC THEORY	-ECL 203</li>
+                </ul> 
+
+                        {% for result in qp %}
+                        <div id="items">
+                             <p>Course Code: {{result.ccode.ccode}}</p>
+                             <p>Year: {{result.q_year}}</p>
+                             <p>Type: {{result.qtype}}</p>
+                             <p>Link: To view the file click <a href="{{result.link}}"  style="text-decoration:none; color:white; font-weight:bold;" target="_blank"> here</a></p>
+                             
+                        </div>
+                        {% endfor %}
+                        <script>
+                            var x="{{qp}}";
+                           console.log(x=="&lt;QuerySet []&gt;")
+                           if (document.getElementById("items")==null){
+                               var newel=document.createElement("p");
+                               newel.innerHTML="Didn't find a match. Please check the course code";
+                               newel.style.color="white";
+                               newel.style.fontSize="x-large";                               
+                               document.body.appendChild(newel);
+                               
+                           }
+                        </script>
+
+                    </div>
+                    
+                </div> 
+
+
+            </div>
+            
+            
+
+        </div>
+        <script src="{% static 'js/home.js' %}"></script>
+        <!-- <script src="{% static 'js/pyq.js' %}"></script> -->
+    </body>
+</html>

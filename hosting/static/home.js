@@ -1,3 +1,4 @@
+
 function toggle_sidebar(){
     var side_bar=document.getElementById("side_navigation");
     if(side_bar.style.display=="none"){

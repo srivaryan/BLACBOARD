@@ -1,0 +1,86 @@
+<!doctype html>
+{%load static%}
+
+<html lang="en">
+    <head>
+        <title>Lend A Book</title>
+        <!---External CSS Link-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/base.css'%}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/home.css'%}">
+        <link rel="stylesheet" href="{% static 'css/book_search.css'%}">
+        <link rel="stylesheet" href="{% static 'css/register.css'%}">
+    </head>
+    <body>
+        <div id="container">
+            <!-- <div id="header" style="background-image:url(../static/images/home_background.jpg)">
+                <i>Blackboard</i>
+            </div> -->
+ {% comment %} <div class="menu">
+                <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
+                <a class="" href =""><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>{{user.username}}</a>
+                <a href="logout"><i class="fa fa-fw fa-user"></i>LogOut</a>
+            </div>
+            <div id="side_navigation">
+                <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
+                <a href="{% url search_book %}" class="no_cross">Search A Book</a>
+                <a href="{% url todo_fn %}" class="no_cross">Add ToDo</a>
+                <a href="{% url pyq %}" class="no_cross">Previous Year Questions</a>
+                <a href="{% url sm_pg1 %}" class="no_cross">Intra College Social Media</a>
+                <a href="{% url addbook %}" class="no_cross">Lend A Book</a>
+                <a href="{% url book_transaction %}" class="no_cross">View Book Transactions</a>
+            </div>
+            </div> {% endcomment %}
+
+            <div class="menu">
+                <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
+                <a class="#" href="home"><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>{{user.username}}</a>
+                <a href="logout"><i class="fa fa-fw fa-user"></i>LogOut</a>
+            </div>
+            <div id="side_navigation">
+                <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
+                <a href="search_book" class="no_cross">Search A Book</a>
+                <a href="todo_fn" class="no_cross">Add ToDo</a>
+                <a href="pyq" class="no_cross">Previous Year Questions</a>
+                <a href="sm_pg1" class="no_cross">Intra College Social Media</a>
+                <a href="addbook" class="no_cross">Lend A Book</a>
+                <a href="book_transaction" class="no_cross">View Book Transactions</a>
+            </div>
+            <div id="content_main" > 
+                
+                    <form action="addbook" method="POST">
+                        {% csrf_token %}
+                        <label for="book_name" class="labels">Enter the name of the book:</label>
+                        <input type="text" class="inputs" name="book_name" style="height:40px;" required><br><br>
+                        <label for="aname1" class="labels">Enter the name of the author:</label>
+                        <input type="text" class="inputs" name="aname1" style="height:40px;" placeholder="First Author" required>
+                        <input type="text" class="inputs" name="aname2" style="height:40px;" placeholder="Second Author"><br><br>
+                        <label for="genre" class="labels">Select genre of the book: </label>
+                        <select name="genre" class="inputs select" style="height:40px;">
+                            <option value="NF">Non-Fiction</option>
+                            <option value="F">Fiction</option>
+                            <option value="Th">Thriller</option>
+                            <option value="AA">Action and Adventure</option>
+                            <option value="C">Comic</option>
+                            <option value="BG">Biographies</option>
+                            <option value="CLB">College Books</option>
+                        </select><br><br>
+                        {% comment %} <label for="myfile">Post a picture</label>
+                        <input type="file" name="picture"><br> {% endcomment %}
+                        <button type="submit" class="container-button next">Next</button>
+                    </form>
+                 
+                       
+
+            </div>
+            
+            
+
+        </div>
+        <script src="{% static 'js/home.js' %}"></script>
+        <script src="{% static 'js/book.js' %}"></script>
+    </body>
+</html>

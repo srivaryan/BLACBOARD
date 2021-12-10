@@ -1,0 +1,56 @@
+body{
+    background-color:black;
+    position:relative;
+}
+#container{
+    background-color:rgb(44, 39, 39);
+    position: absolute;
+    top:100px;
+    left:150px;
+    border-radius:5px;
+    color:white;
+    padding:15px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+    font-size:20px;
+    
+}
+.label{
+    font-size:18px;
+}
+.branch{
+    font-weight:normal;
+    transition:font-weight 0.25ms;
+}
+.branch:hover{
+    font-weight:bold;
+}
+.inputs{
+    height:20px;
+    padding:3px;
+    outline:2px solid white;
+    outline-offset:-2px;
+    transition: outline-offset 0.25ms ease;
+}
+.inputs:hover{
+    outline-width: 3px;
+    outline-offset:0px;
+} 
+.no_outline.inputs{
+    outline:none;
+}
+.btn{
+    background-color:rgb(153, 18, 153);
+    font-weight:bold;
+    font-size:20px;
+    color:white;
+    height:40px;
+    outline:2px solid rgb(153, 18, 153);
+    outline-offset:-2px;
+    transition: outline-offset 0.25ms ease;
+}
+.btn:hover:focus:active{
+    outline-width: 3px;
+    outline-offset:0px;
+    font-size: 22px;
+    border-radius: 5px;
+}

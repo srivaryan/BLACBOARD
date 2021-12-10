@@ -1,0 +1,94 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>Blackboard</title>
+        <!---External CSS Link-->
+        <link rel="stylesheet" href="{%static 'css/base.css'%}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{%static 'css/home.css'%}">
+        <link rel="stylesheet" href="{%static 'css/book_search.css'%}">
+        <link rel="stylesheet" href="{%static 'css/book_search_2.css'%}">
+    </head>
+    <body style="background-image:url(../static/images/blackboard.jpg)">
+        <div id="container" >
+            
+             <div class="menu">
+                <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
+                <a class="#" href="home"><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>{{user.username}}</a>
+                <a href="logout"><i class="fa fa-fw fa-user"></i>LogOut</a>
+            </div>
+            <div id="side_navigation">
+                <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
+                <a href="search_book" class="no_cross">Search A Book</a>
+                <a href="todo_fn" class="no_cross">Add ToDo</a>
+                <a href="pyq" class="no_cross">Previous Year Questions</a>
+                <a href="sm_pg1" class="no_cross">Intra College Social Media</a>
+                <a href="addbook" class="no_cross">Lend A Book</a>
+                <a href="book_transaction" class="no_cross active">View Book Transactions</a>
+            </div>
+            <div class="content addchalk" style="padding-top:50px"> 
+                {% if message%}
+                <h2 class="message" style="color:black;">{{message}}</h2> 
+                {%endif%}
+                {% if alert %}
+                <h2 class="message">{{alert}}</h2>
+                <form action="book_transaction" method="post">
+                    {%csrf_token%}
+                    <br><label for="response" class="labels" style="color:white;">Have you received the book?</label>
+                    <select name="response" class="inputs select" style="height:40px;">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="hidden" name="id" value="{{aid}}">
+                    <button type="submit" class="container-button" style="display:block;">Confirm</button>
+                </form>
+                {%endif%}
+                {% if borrowed %}
+                <br><h2>The books you have borrowed:</h2>
+                {% for bb in borrowed %}
+                <div class="books">
+                <p>Name: {{bb.bid.name}}</p>
+                {% for author in bb.bid.author.all %}
+                         <p>Author: {{author.aname}}</p>
+                {% endfor %}
+                </div>
+                {% endfor %}
+                {%endif%}
+                {% if lent %}
+                <br><h2>The books you have lent:</h2>
+                {% for lb in lent %}
+                <div class="books">
+                <p>Name:{{lb.bid.name}}</p>
+                {% for author in lb.bid.author.all %}
+                         <p>Author: {{author.aname}}</p>
+                {% endfor %}
+                </div>
+                {% endfor %}
+                {%endif%}
+                {%if borrowed %}
+                <br><h2>Do you want to return a book?</h2>
+                <form action="book_transaction" method="post">
+                    {%csrf_token%}
+                    <label for="Book" class="labels" style="color:white;">Select the book you wish to return: </label>
+                        <select name="book" class="inputs select" style="height:40px;">
+                            {% for book in borrowed %}
+                            <option value="{{book.bid.id}}">{{book.bid.name}}</option>
+
+                            {%endfor%}
+                        </select><br><br>
+                        <button type="submit" class="container-button">Return</button>
+                </form>
+                {%endif%}
+
+
+            </div>
+            
+            
+
+        </div>
+        <script src="{% static 'js/home.js' %}"></script>
+        <!-- <script src="{% static 'js/pyq.js' %}"></script> -->
+    </body>
+</html>

@@ -1,8 +1,33 @@
-#content_main{
-    width:100%
+@import url('http://fonts.cdnfonts.com/css/callie-chalk-font');
+body{
+	position:relative;
+}
+.content{
+    width:100%;
+	font-family: 'Callie Chalk Font', sans-serif;
 }
 .container-padding50 {
 	padding-top: 50px;
+}
+@font-face {
+	font-family: "FontAwesome";
+	font-weight: normal;
+	font-style : normal;
+		   src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0");
+		   src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"),
+				 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"),
+				 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"),
+				 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"),
+				 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+	}
+	
+a[target="_blank"]::after{
+	font-family: 'FontAwesome';
+    content: " \f08e";}
+p
+{
+	color:white;
+
 }
 
 .container-textinput {
@@ -21,11 +46,73 @@
 	height:65px;
 	display: inline-block;
 	padding: 10px;
-	background-color: rgb(153, 18, 153);
+	background-color: #195437;
 	color: white;
 	font-size: 20px;
 	font-family: Arial;
 	font-weight:bolder;
-	border: 1px solid rgb(153, 18, 153);
+	border: 1px solid #195437;
 	border-radius: 5px;
 }
+.container-button:hover{
+	background-color: #309292;
+	border: 1px solid #309292;
+}
+.next{
+	margin:20px;
+	width:80px;
+}
+
+.item{
+	width:80%;
+	margin:6px 0px 0px 2px;
+	outline:2px white solid;
+	color:white;
+	padding:10px;
+}
+#items{
+	width:70%; padding:15px; outline: 4px solid white; font-size:18px; margin:15px;height:240px;
+	transition: font-size 10ms ease;
+}
+#items:hover{
+	outline: 6px solid #80C427;
+	outline-offset:2px;
+	
+}
+
+.alert{
+	/* background-image:url("../images/home_background.jpg") ; */
+	background:rgb(2, 65, 2);
+	outline:2px solid white;
+	outline-offset:-6px;
+	background-position: center;
+	font-family: 'Callie Chalk Font', sans-serif;
+	display:block;
+	/* filter:grayscale(100%); */
+	position:absolute;
+	top:280px;
+	left:350px;
+	padding:30px;
+	font-size:2em;
+	border-radius:5px;
+	
+	z-index:1;
+	color:white;
+}
+
+.alert button{
+	margin:0 10px 0 0;
+	padding:10px;
+	border-radius:5px;
+}
+/* .alert::before{
+	content:"";
+	position:absolute;
+    background:black;
+    width:97%; height:40%;
+    right:10px;
+    opacity:1;
+    outline: 2px solid white;
+    outline-offset:-8px;
+    z-index: -1;
+} */

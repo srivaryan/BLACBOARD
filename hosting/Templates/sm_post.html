@@ -1,0 +1,65 @@
+{% load static %} 
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <title>Social Media POST</title>
+        <!---External CSS Link-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/sm_post.css'%}">
+    </head>
+
+        <body style="background-image:url(../static/images/blackboard.jpg)">
+
+        <div id="container" >
+
+            <div id="header" style="background-image:url(../static/images/home_background.jpg)">
+                <i>Blackboard</i>
+            <div class="menu">
+                <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
+                <a class="home" href="home"><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>{{user.username}}</a>
+                <a href="logout"><i class="fa fa-fw fa-user"></i>LogOut</a>
+            </div>
+            
+            <div id="side_navigation">
+                <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
+                <a href="search_book" class="no_cross">Search A Book</a>
+                <a href="todo_fn" class="no_cross">Add ToDo</a>
+                <a href="pyq" class="no_cross">Previous Year Questions</a>
+                <a href="sm_pg1" class="no_cross active">Intra College Social Media</a>
+                <a href="addbook" class="no_cross">Lend A Book</a>
+                <a href="book_transaction" class="no_cross">View Book Transactions</a>
+
+            </div>
+            {% for i in data %}
+                <div id="content">  
+                    <div id="details_box">
+                        <p><h2>{{i.user_id}}</h2>
+                        
+                        {{i.post_date}}
+                        <br>
+                        {{i.post_text}}
+                        <br>
+                        <hr width=250 px>
+                        {% if i.post_img %}
+                            <img src = "media/{{i.post_img}}" height= 450px width = 500px>
+                        {% else %}
+                            <p></p>
+                        {% endif %}
+                        <form action="{% url 'likes' i.id%}" method="POST">
+                        {% csrf_token %}  
+                            <button type ='submit' class = 'like-button'><img src="{% static 'images/like.png' %}" height= 30 px></button>  {{i.likes}} 
+                        </form>
+                        <form action = "{% url 'dislikes' i.id%}" id="stud_deet" method="post">
+                        {% csrf_token %}     
+                            <button type = 'submit' class = 'dislike-button'><img src="{% static 'images/dislike.png' %}" height= 30 px></button>  {{i.dislikes}}
+                        </form
+                        <hr width=400 px, height = 10px><hr width=400 px, height = 10px></p>
+                    </div> 
+            </div>
+        {%endfor%}
+        <script src="{% static 'js/home.js' %}"></script>
+        <script src="{% static 'js/book.js' %}"></script>
+    </body>
+</html> 

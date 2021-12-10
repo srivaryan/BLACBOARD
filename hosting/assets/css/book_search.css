@@ -1,0 +1,81 @@
+@import url('http://fonts.cdnfonts.com/css/callie-chalk-font');
+body{
+	position:relative;
+}
+.content{
+    width:100%;
+	font-family: 'Callie Chalk Font', sans-serif;
+}
+.container-padding50 {
+	padding-top: 50px;
+}
+
+.container-textinput {
+	width: 80%;
+	height:45px;
+	display: inline-block;
+	padding: 10px;
+	font-size: 20px;
+	font-family: Arial;
+	font-weight:normal;
+	border-radius:5px;
+}
+
+.container-button {
+	width: 10%;
+	height:65px;
+	display: inline-block;
+	padding: 10px;
+	background-color: rgb(2, 65, 2);
+	color: white;
+	font-size: 20px;
+	font-family: Arial;
+	font-weight:bolder;
+	border: 1px solid rgb(2, 65, 2);
+	border-radius: 5px;
+}
+
+.item{
+	width:80%;
+	margin:6px 0px 0px 2px;
+	outline:2px white solid;
+	color:white;
+	padding:10px;
+}
+
+.alert{
+	/* background-image:url("../images/home_background.jpg") ; */
+	background:rgb(2, 65, 2);
+	outline:2px solid white;
+	outline-offset:-6px;
+	background-position: center;
+	font-family: 'Callie Chalk Font', sans-serif;
+	display:block;
+	/* filter:grayscale(100%); */
+	position:absolute;
+	top:280px;
+	left:350px;
+	padding:30px;
+	font-size:2em;
+	border-radius:5px;
+	
+	z-index:1;
+	color:white;
+}
+
+.alert button{
+	margin:0 10px 0 0;
+	padding:10px;
+	border-radius:5px;
+}
+/* .alert::before{
+	content:"";
+	position:absolute;
+    background:black;
+    width:97%; height:40%;
+    right:10px;
+    opacity:1;
+    outline: 2px solid white;
+    outline-offset:-8px;
+    z-index: -1;
+} */

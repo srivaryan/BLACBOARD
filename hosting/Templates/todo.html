@@ -1,0 +1,35 @@
+{%load static%} 
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>TODO</title>
+        <link rel="stylesheet" href="{%static 'css/register.css'%}">
+        <link rel="stylesheet" href="{%static 'css/home.css'%}">
+    </head>
+
+
+
+        <div id="container">
+        <h1>Blackboard    <a href = 'home' ><img class="img_fade" src="{% static 'images/back.PNG' %}" height=55px></a></h1>
+        <h2>TODO</h2>
+            <div id="details_box" >
+            <form action="/todo_fn" id="stud_deet" method="post">
+                {% csrf_token %}
+                <label for = "reminder_date", class = "labels">Reminder Date and Time</label>
+                <input type ='datetime-local' class='inputs' name='reminder_date' id='reminder_date'>
+                                
+                <br><br>
+
+                <label for = 'todo_text' class='labels'>Enter your Reminder: </label>
+                <input type= "text" class="inputs" name = 'todo_text' width = 75 px, height= 250 px>
+
+                <br>
+
+                <button type "submit"> Add reminder </button>
+
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

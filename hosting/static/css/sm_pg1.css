@@ -1,0 +1,289 @@
+@import url('http://fonts.cdnfonts.com/css/callie-chalk-font');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
+:root {
+    --light-blue: #80aaff;
+    --dark-blue: #309292;
+    --dominant1:black;
+    --dominant2:#FEE5AD;
+    --complement:#195437;
+    --clr-comp: #ff65f7;
+    --clr-lmao: #0a06ecfd; 
+
+  }
+
+#header{
+    /* background-image:url("../images/home_background.jpg") ; */
+    font-family: 'Callie Chalk Font', sans-serif;
+    /* background-position:center; */
+    background-color:black;
+    width:100%;
+    height:200px;
+    padding:50px 0 0 0 ;
+    color:white;
+    font-size:100px;
+    text-align:center;
+    outline:yellow;
+    filter:grayscale(0%);
+    transition:filter 250ms ease;
+    position:relative;
+    margin-top: 5 px;
+    /* border : 1px solid red; */
+}
+
+#header::before{
+    content:"";
+    position:absolute;
+    background-image:url("../images/blackboard.jpg");
+    background-position:center;
+    /* background:black; */
+    width:57%; height:70%;
+    right:285px;
+    opacity:1;
+    outline: 2px solid white;
+    outline-offset:-8px;
+    z-index: -1;
+}
+
+.menu{
+    font-family: 'Patua One', cursive;
+    font-size:16px;
+    width:100%;
+    height:60px;
+    /* background:linear-gradient(to right,rgba(90, 126, 108, 1),rgba(46,133,68,0.8),rgba(83, 138, 11,0.6)); */
+    background:var(--complement);
+    opacity:1;
+    position:fixed;
+    top:0px;
+    z-index:2;
+    /* outline:6px solid white; */
+    /* overflow:auto; */
+}
+
+.active{
+    background-color:black;
+}
+
+.menu a{
+    height:62%;
+    float: left;
+    /* outline:6px solid white; */
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  /* font-weight:bold; */
+  transition: font-size ease;
+}
+
+.menu a:hover {
+    background-color:black;
+    color:var(--dark-blue)
+}
+
+#side_navigation{
+    color:white;
+    /* height:320px; */
+    width:280px;
+    display:none;
+    font-family: 'Patua One', cursive;
+    background:yellow;
+    position:fixed;
+    top:68px;
+    background:var(--complement);
+    opacity:1;
+    z-index:100;
+}
+#cross{
+    position:relative;
+    left:100px;
+    top:0px;
+    display:block;   
+
+    /* float: left; */
+    /* outline:6px solid white; */
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight:bold;
+  
+}
+#cross:hover{
+    
+    color:black;
+    
+}
+
+.no_cross { 
+    
+    display:block;   
+
+    /* float: left; */
+    /* outline:6px solid white; */
+  font-family: 'Patua One', cursive;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  
+  
+}
+.no_cross:hover {
+    background-color:black;
+    color:var(--dark-blue);
+}
+
+/* .hard{
+    background-image:linear-gradient(rgb(243, 247, 10), rgb(241, 243, 101));
+    width:70px; 
+    height : 69 px;
+
+} */
+
+a{
+    text-decoration:none;
+    color: #ffffff
+}
+
+.rofl {
+    font-size:1.5rem;
+    background-color: transparent;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Callie Chalk Font', sans-serif;
+    color: var(--clr-neon);
+    /* color: #9ad4d4; */
+    /* border: var(--clr-neon) 0.125em solid; */
+    border: var(--clr-comp) 0.125em solid;
+    /* border: var(--clr-) 0.125em solid; */
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+    height :100 px; 
+    width: 100 px;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  
+    box-shadow: inset 0 0 0.5em 0 var(--clr-comp), 0 0 0.5em 0 var(--clr-comp);
+    opacity : 10;
+    position: relative;
+  }
+  
+  .rofl::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: var(--clr-comp);
+    /* background: #9ad4d4; */
+    top: 120%;
+    left: 0;
+    width: 80%;
+    height: 100%;
+  
+    transform: perspective(0.5em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1em);
+    opacity: 0.7;
+  }
+  
+  .rofl::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.5em var(--clr-comp);
+    opacity: 0;
+    background-color: var(--clr-comp);
+    z-index: -1;
+    transition: opacity 100ms linear;
+  }
+  
+  .rofl:hover,
+  .rofl:focus {
+    color: var(--clr-bg);
+    text-shadow: none;
+  }
+  
+  .rofl:hover::before,
+  .rofl:focus::before {
+    opacity: 1;
+  }
+  .rofl:hover::after,
+  .rofl:focus::after {
+    opacity: 1;
+  }
+
+
+/* for the second button */
+
+.lmao {
+    font-size:1.5rem;
+    background-color: transparent;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Callie Chalk Font', sans-serif;
+    color: var(--clr-lmao);
+    /* color: #9ad4d4; */
+    /* border: var(--clr-neon) 0.125em solid; */
+    border: var(--clr-lmao) 0.125em solid;
+    /* border: var(--clr-) 0.125em solid; */
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+    height :100 px; 
+    width: 100 px;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  
+    box-shadow: inset 0 0 0.5em 0 var(--clr-lmao), 0 0 0.5em 0 var(--clr-lmao);
+    opacity : 10;
+    position: relative;
+  }
+  
+  .lmao::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: var(--clr-lmao);
+    /* background: #9ad4d4; */
+    top: 120%;
+    left: 0;
+    width: 80%;
+    height: 100%;
+  
+    transform: perspective(0.5em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1em);
+    opacity: 0.7;
+  }
+  
+  .lmao::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.5em var(--clr-lmao);
+    opacity: 0;
+    background-color: var(--clr-lmao);
+    z-index: -1;
+    transition: opacity 100ms linear;
+  }
+  
+  .lmao:hover,
+  .lmao:focus {
+    color: var(--clr-bg);
+    text-shadow: none;
+  }
+  
+  .lmao:hover::before,
+  .lmao:focus::before {
+    opacity: 1;
+  }
+  .lmao:hover::after,
+  .lmao:focus::after {
+    opacity: 1;
+  }

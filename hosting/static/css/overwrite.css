@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
+@import url('http://fonts.cdnfonts.com/css/callie-chalk-font');
+*{
+    color:white;
+    font-family:'Patua One', cursive;
+}
+
+input,label{
+    display:block;
+    margin:10px 0 10px 60px;
+}
+input{
+    font-family:'Lucida Sans', sans-serif;
+    color:black;
+}
+a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+input{
+    padding:5px;
+    height:27px;
+    width:70%;
+}
+button{
+    margin:30px 0 0 100px;
+    font-size:18px;
+    background-color:#195437 !important;
+    border-color:#195437  !important;
+}
+button:hover{
+    background-color:#309292 !important;
+    border-color:#309292  !important;
+}
+#container{
+    position:relative;
+    top:10px;
+    left:300px;
+    width:60%;
+}
+.login{
+    height:50px; width:70px;
+}
+
+#header{
+    font-size:60px;
+    font-family: 'Callie Chalk Font', sans-serif !important;
+    filter:grayscale(0%);
+}
+#header::before{
+    right:200px;
+    top:40px;
+    height:100px;
+    
+}

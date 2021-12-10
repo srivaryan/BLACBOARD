@@ -1,13 +1,66 @@
+@import url('http://fonts.cdnfonts.com/css/callie-chalk-font');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
+:root {
+    --light-blue: #80aaff;
+    --dark-blue: #309292;
+    --dominant1:black;
+    --dominant2:#FEE5AD;
+    --complement:#195437;
+
+  }
+
+  @font-face {
+	/* font-family: "FontAwesome"; */
+    font-family: 'Callie Chalk Font', sans-serif;
+	font-weight: normal;
+	font-style : normal;
+		   src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0");
+		   src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"),
+				 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"),
+				 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"),
+				 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"),
+				 url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+	}
+	
+a[target="_blank"]::after{
+    
+	/* font-family: 'FontAwesome'; */
+    font-family: 'Callie Chalk Font', sans-serif;
+    content: " \f08e";
+    
+}
+a{
+    text-decoration:none;
+    font-weight:bold; 
+    color:rgb(45, 187, 212);   
+}
+a[target="_blank"]:hover{
+    color:var(--dark-blue);
+}
+td{
+    /* font-family: 'Patua One', cursive; */
+    font-family: 'Callie Chalk Font', sans-serif;
+    margin:0 0 0 20px;
+    white-space:nowrap;
+}
+td:hover{
+    color:yellow;
+    /* color:var(--light-blue); */
+}
+
 #side_navigation{
     color:white;
-    height:500px;
-    width:240px;
+    
+    width:280px;
     display:none;
+    font-family: 'Patua One', cursive;
     background:yellow;
     position:fixed;
     top:68px;
-    background:rgb(153, 18, 153);
-    opacity:0.6;
+    background:var(--complement);
+    opacity:1;
+    z-index: 2;
 }
 #cross{
     position:relative;
@@ -26,6 +79,7 @@
   
 }
 #cross:hover{
+    
     color:black;
     
 }
@@ -36,28 +90,83 @@
 
     /* float: left; */
     /* outline:6px solid white; */
+  font-family: 'Patua One', cursive;
   text-align: center;
   padding: 12px;
   color: white;
   text-decoration: none;
   font-size: 20px;
-  font-weight:bold;
-  transition: background-color ease;
+  
+  
 }
 .no_cross:hover {
     background-color:black;
+    color:var(--dark-blue);
 }
 #content{
     width:75%;
     float:left;
+    overflow-x:scroll;
 }
 #side_bar{
-    background-color:rgb(44, 39, 39); 
-    width:267px;
-    height:600px;
+    /* background-color:rgb(44, 39, 39);  */
+    font-family:'Callie Chalk Font', sans-serif;
+    /* border:2px solid white; 
+    outline: 2px solid white; 
+    outline-offset:-8px; */
+    width:255px;
+    height:700px;
     margin:3px 3px 3px 3px;
     color:white;
-    font-size:20px;
+    font-size:16px;
     padding: 15px 15px 0 15px;
     float:left;
+}
+.heading{
+    font-family: 'Callie Chalk Font', sans-serif;
+    color:var(--dark-blue);
+    font-size:16px;
+    white-space:nowrap;
+}
+.small_yellow{
+    color:var(--light-blue);
+    font-size:14px;
+}
+.green_font:hover{
+    color:var(--dark-blue);
+}
+
+.container-button {
+	/* width: 100px;
+	height:100x; */
+	display: inline-block;
+	padding: 10px;
+	background-color: #195437;
+	color: white;
+	font-size: 20px;
+	/* font-family: Arial; */
+    font-family: 'Callie Chalk Font', sans-serif;
+
+	font-weight:bolder;
+	border: 1px solid #195437;
+	border-radius: 5px;
+}
+.container-button:hover{
+	background-color: #309292;
+	border: 1px solid #309292;
+}
+
+.delete{
+    color:white;
+    background:rgb(31, 27, 27);
+    font-size:18px;
+    height:50px; width:50px;
+    border-radius: 50%;
+    border:none;
+    opacity:0;
+    cursor:pointer;
+}
+.delete:hover{
+    opacity:1;
+    display:block;
 }

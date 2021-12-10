@@ -1,0 +1,95 @@
+<!doctype html>
+{%load static%}
+
+<html lang="en">
+    <head>
+        <title>Search A Book</title>
+        <!---External CSS Link-->
+        <link rel="stylesheet" href="{% static 'css/base.css'%}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/home.css'%}">
+        <link rel="stylesheet" href="{% static 'css/book_search_2.css'%}">
+    </head>
+    <body>
+        <div id="container">
+            
+            {% comment %} <div class="menu">
+                <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
+                <a class="#" href="home"><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>{{user.username}}</a>
+                <a href="logout"><i class="fa fa-fw fa-user"></i>LogOut</a>
+            </div>
+            <div id="side_navigation">
+                <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
+                <a href="search_book" class="no_cross">Search A Book</a>
+                <a href="todo_fn" class="no_cross">Add ToDo</a>
+                <a href="pyq" class="no_cross">Previous Year Questions</a>
+                <a href="sm_pg1" class="no_cross">Intra College Social Media</a>
+                <a href="addbook" class="no_cross">Lend A Book</a>
+                <a href="book_transaction" class="no_cross">View Book Transactions</a>
+            </div> {% endcomment %}
+
+              <div class="menu">
+                <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
+                <a class="" href ="{%url 'home' %}"><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>{{user.username}}</a>
+                <a href="logout"><i class="fa fa-fw fa-user"></i>LogOut</a>
+            </div>
+            <div id="side_navigation">
+                <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
+                <a href="{% url 'search_book' %}" class="no_cross">Search A Book</a>
+                <a href="{% url 'todo_fn' %}" class="no_cross">Add ToDo</a>
+                <a href="{% url 'pyq' %}" class="no_cross">Previous Year Questions</a>
+                <a href="{% url 'sm_pg1' %}" class="no_cross">Intra College Social Media</a>
+                <a href="{% url 'addbook' %}" class="no_cross">Lend A Book</a>
+                <a href="{% url 'book_transaction' %}" class="no_cross">View Book Transactions</a>
+            </div>
+            </div> 
+            <div id="content_main" >  
+                <div class="books card">
+                    <h2>Congratulations!</h2>
+                    <p>You have successfully borrowed </p>
+                    <p style="font-weight: bold; font-size:18px;">{{book.name}} </p><br>
+                    <p ><a href="{% url 'home' %}" style="text-decoration:none; color:white; font-weight:bold;">Click here to return to the home page</a></p>
+                </div>
+            </div>
+                    <script>
+                        console.log("here");
+                    </script>
+                    <h2><br><br><br>Similar books you might be interested in:</h2>
+                <div id="recommend" class="suggestions">
+
+                    {% for result in sim_b %}
+                    <div id="book" class="books smaller" >
+                         <p>Name: {{result.name}} </p>
+                         {% for author in result.author.all %}
+                         <p>Author: {{author.aname}}</p>
+                         {% endfor %}
+                         
+                         <p>To borrow the book click <a href="/books/{{result.id}}/"   style="text-decoration:none;  font-weight:bold; color:white; text-decoration:none;" > here</a></p>
+                         
+                    </div>
+                    {% endfor %}
+
+                
+                <div class="carousel_actions">
+                    <button id="carousel_button-previous" class="--hidden" aria-label="previous"><</button>
+                    <button id="carousel_button-next" class="--hidden" aria-label="next">></button>
+                </div>
+            </div>
+
+            </div>
+            
+            
+
+        
+        <script>
+            function send_data(ev){
+                console.log(ev)
+            }
+        </script>
+        <script src="{% static 'js/carousel.js'}"></script>
+        <script src="{% static 'js/home.js' %}"></script>
+        <script src="{% static 'js/book.js' %}"></script>
+    </body>
+</html>

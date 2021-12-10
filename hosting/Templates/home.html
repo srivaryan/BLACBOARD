@@ -1,41 +1,191 @@
-{%load static%}
+{% comment %} {% extends 'base.html' %}
+
+{% block title %}HOME PAGE{% endblock title %}
+
+ {% endcomment %}
+
+
+{% load static %} 
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Home Page</title>
+        <title>HOME</title>
         <!---External CSS Link-->
-        <link rel="stylesheet" href="{% static 'base.css'%}">
+        <link rel="stylesheet" href="{% static 'css/base.css'%}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{% static 'home.css'%}">
+        <link rel="stylesheet" href="{% static 'css/home.css'%}">
+
+        {% comment %} <link rel="stylesheet" href="{% static 'css/button.css'%}"> {% endcomment %}
+
     </head>
     <body>
-        <div id="container">
-            <div id="header">
+        <body style="background-image:url(../static/images/blackboard.jpg)">
+        <div id="container" >
+            <div id="header" style="background-image:url(../static/images/home_background.jpg)">
                 <i>Blackboard</i>
             </div>
             <div class="menu">
                 <a href="#" onclick="toggle_sidebar()"><i class="fa fa-fw fa-bars"></i></a>
-                <a class="active" href="#"><i class="fa fa-fw fa-home"></i>Home</a>
-                <a href="#"><i class="fa fa-fw fa-key"></i>Username</a>
-                <a href="base.html"><i class="fa fa-fw fa-user"></i>LogOut</a>
+                <a class="active" href="home"><i class="fa fa-fw fa-home"></i>Home</a>
+                <a href="#"><i class="fa fa-fw fa-key"></i>{{user.username}}</a>
+                <a href="logout"><i class="fa fa-fw fa-user"></i>LogOut</a>
             </div>
             <div id="side_navigation">
                 <a href="#" onclick="toggle_sidebar()" id="cross">&times</a>
-                <a href="search_book.html" class="no_cross">Book Exchange</a>
-                <a href="#" class="no_cross">Concern Redressal</a>
-                <a href="#" class="no_cross">Previous Year Questions</a>
+                <a href="search_book" class="no_cross">Search A Book</a>
+                <a href="todo_fn" class="no_cross">Add ToDo</a>
+                <a href="pyq" class="no_cross">Previous Year Questions</a>
+                <a href="sm_pg1" class="no_cross">Intra College Social Media</a>
+                <a href="addbook" class="no_cross">Lend A Book</a>
+                <a href="book_transaction" class="no_cross">View Book Transactions</a>
             </div>
-            <div id="content">              
 
+            <div id="content">    
+            <h1>Timetable</h1>
+            <p> Batch of  {{user.year}}</p>
+            <p> Branch : {{user.branch}}</p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>TIME</th>
+                        <th>MONDAY</th>
+                        <th>TUESDAY</th>
+                        <th>WEDNESDAY</th>
+                        <th>THURSDAY</th>
+                        <th>FRIDAY</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>8.30-9.30<br>W 8.45-9.30</td>
+        
+                    {%for i in data_cse_1%}
+                       <td> {{i.subject_id}}<br>
+                        {{i.teacher_name}}<br>
+                        <a href="{{i.gmeet_link}}">Join Class</a> 
+                        </td>
+                    {%endfor%}
+                    </tr>
+                <tr>
+                    <td>9.30-10.30<br>W 9.30-10.15</td>
+                    {%for i in data_cse_2%}
+                       <td> {{i.subject_id}}<br>
+                        {{i.teacher_name}}<br>
+                        <a href="{{i.gmeet_link}}">Join Class</a>
+                        </td>
+                    {%endfor%}
+                </tr>
+                <tr>
+                    <td>10.30-11.30<br>W 10.15-11.00</td>
+                    {%for i in data_cse_3%}
+                       <td> {{i.subject_id}}<br>
+                        {{i.teacher_name}}<br>
+                        <a href="{{i.gmeet_link}}">Join Class</a>
+                        </td>
+                    {%endfor%}
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>11.30-12.30<br>W 11.00-11.45</td>
+                    {%for i in data_cse_4%}
+                       <td> {{i.subject_id}}<br>
+                        {{i.teacher_name}}<br>
+                        <a href="{{i.gmeet_link}}">Join Class</a>
+                        </td>
+                    {%endfor%}
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>12.30-13.30<br>W 11.45-12.30</td>
+                    {%for i in data_cse_5%}
+                       <td> {{i.subject_id}}<br>
+                        {{i.teacher_name}}<br>
+                        <a href="{{i.gmeet_link}}">Join Class</a>
+                        </td>
+                    {%endfor%}
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>13.30-14.30<br>W 12.30-13.15</td>
+                    {%for i in data_cse_6%}
+                       <td> {{i.subject_id}}<br>
+                        {{i.teacher_name}}<br>
+                        <a href="{{i.gmeet_link}}">Join Class</a>
+                        </td>
+                    {%endfor%}
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>14.30-15.30<br>W 13.15-14.00</td>
+                    {%for i in data_cse_7%}
+                       <td> {{i.subject_id}}<br>
+                        {{i.teacher_name}}<br>
+                        <a href="{{i.gmeet_link}}">Join Class</a>
+                        </td>
+                    {%endfor%}
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>15.30-16.30<br>W 14.00-14.45</td>
+                    {%for i in data_cse_8%}
+                       <td> {{i.subject_id}}<br>
+                        {{i.teacher_name}}<br>
+                        <a href="{{i.gmeet_link}}">Join Class</a>
+                        </td>
+                    {%endfor%}
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>16.30-17.30<br>W 14.45-15.15</td>
+                    {%for i in data_cse_9%}
+                       <td> {{i.subject_id}}<br>
+                        {{i.teacher_name}}<br>
+                        <a href="{{i.gmeet_link}}">Join Class</a>
+                        </td>
+                    {%endfor%}
+                    <td></td>
+                </tr>
+                </table>
             </div>
+            {% comment %} <form action="/todo" id="stud_deet" method="post">
+            {% csrf_token %} {% endcomment %}
             <div id="side_bar">
-                <p>Next Class: </p><br>
-                <p>Due Assignments:</p><br><br>
-                <p>Borrowed Books: </p><br><br>
+                
+                <p>TODO: <span style="background-color:#195437; padding: 10px;"><a href = "/todo_fn">Add new</a></span></p>
+                {%for j in todo_cse%}
+                <div id="{{j.id}}" class="reminders">
+                <p>Reminder Date:<br> {{j.reminder_date}}
+                <br><span class="green_font">
+                {{j.todo_text}}</span>
+                <button type="button" class="delete" style="display:inline-block;" onclick="send_data('{{j.id}}')"><i class="fa fa-trash"></i></button>
+                
+                <form action="home" method="post" style="display:none;" id="hidden_form">
+                {% csrf_token %}
+                <input type="hidden" value="{{j.id}}" name="id">
+                <button type="submit" style="display:none;" id="btn{{j.id}}"></button>
+                </form>
+                <!-- <button type="submit">Here</button></form> -->
+                <br><br>
+                </p>
+                </div>
+                {% endfor %}
+               
             </div>
             
 
         </div>
-        <script src="../js/home.js"></script>
+        <script>
+            
+            function send_data(id) {
+                var to_do=document.getElementById(id);
+                console.log(to_do);
+                
+                var button=document.getElementById("btn"+id);
+                button.click();
+                to_do.remove()
+                console.log(button);
+            }
+        </script>
+        
+        <script src="{% static 'js/home.js' %}"></script>
     </body>
 </html>

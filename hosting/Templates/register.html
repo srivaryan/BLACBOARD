@@ -1,43 +1,28 @@
-{%load static%}
+ 
 <!doctype html>
-
+{%load static%}
 <html lang="en">
     <head>
         <title>Sign Up and Registeration</title>
         <!--External CSS Link-->
-        <link rel="stylesheet" href="{%static 'register.css'%}">
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css'%}">
+        <link rel="stylesheet" href="{%static 'css/register.css'%}">
+        <link rel="stylesheet" href="{%static 'css/overwrite.css'%}">
+        <link rel="stylesheet" href="{%static 'css/button.css'%}">
     </head>
     <body>
+        <div id="details_box">
+        <div id="header" style="background-image:url(../static/images/home_background.jpg);">
+            <i>Blackboard</i>
+                </div>
         <div id="container">
-            <div id="details_box">
-                <form action="#" id="stud_deet">
-                    
-                    <!--email-->
-                    <label for="email" class="labels">Enter your email (your college ID):</label>
-                    <input type="email" class="inputs" name="email" pattern="[0-9]+@nitdelhi.ac.in" required><br><br>
-                    <label class="labels">Please select your branch:</label><br><br>
-                    <!---branch-->
-                    <input type="radio" class="inputs no_outline" name="branches" value="CSE">
-                    <label for="branches" class="labels branch" >Computer Science Engineering</label><br>
-                    <input type="radio" class="inputs no_outline" name="branches" value="ECE">
-                    <label for="branches" class="labels branch">Electronics and Communication Engineering</label><br>
-                    <input type="radio" class="inputs no_outline" name="branches" value="EEE">
-                    <label for="branches" class="labels branch">Electronics and Elictrical Engineering</label><br><br>
-                    <!--year-->
-                    <label for="year" class="labels" >Enter your graduating year:</label>
-                    <input type="number" class="inputs" name="number" min="2021" max="2025" placeholder="2022" required><br><br>
-                    <!--username-->
-                    <label for="username" class="labels">Enter your username:</label>
-                    <input type="text" class="inputs" name="username" placeholder="areaofjha" required><br><br>
-                    <!--password-->
-                    <label for="password" class="labels">Enter your password (length:6-8 characters, should contain digits or (!,@,#,%,*)): </label>
-                    <input type="password" class="inputs" name="password" placeholder="Flower1" minlength="6" maxlength="8" id="pswrd"><br><br>
-                    <label for="password_confirmation" class="labels">Confirm your password: </label>
-                    <input type="password" class="inputs" name="password_confirmation" placeholder="Same password as above" size="8" style="width:200px" required><br><br>
-                    <button type="submit" class="btn" form="stud_deet" value="submit" id="submit_btn">Submit</button>                           
-
-
-
+                <h2>Please provide the following details to register:</h2>
+                <form action="register" id="stud_deet" method="post">
+                    {% csrf_token %}
+                    {{form}}
+                    <button type="submit" class="neon-button">Register</button>
+                    <p>Already have an account? Login <a href="login"> here</a>
                 </form>
             </div>
         </div>

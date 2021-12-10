@@ -1,0 +1,54 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>Home Page</title>
+        <!---External CSS Link-->
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{%static 'css/homepage.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body>
+            
+
+        </div> -->
+        <div style="background:url('../static/images/home_background.jpg') no-repeat ;background-size:cover; height:200px;">
+            <div class="head">
+                <h1><i>Know Us Better!</i></h1>
+            </div>
+        </div>
+        
+        <div class="container" style="background:url('../static/images/blackboard.jpg') no-repeat ;background-size:cover; ">
+           
+            
+            <!-- <div class="pictures" style="display:flex;">
+                <h2 class="chalk_text">About us!</h2> -->
+            <h1 class="chalk_text">About our Project!</h1>
+            <div class="intro2">
+                
+                <p>This project is aimed to make the lives of students easier.<br>It 
+                will make sure you don't forget your assignment or your class.<br>
+                Can you recall hassles of finding Previous Year Question Papers? 
+                Fret not! We've got you covered!<br>
+                Want to borrow a book from a senior or want to lend one to a needy junior? 
+                Just search or enter the details!<br><br>You've got doubts, and it's too late to contact the professor?
+                Post it on our Social Media Page!<br>
+                Drop us an email on blackboardaryanaarya@gmail.com</p>
+            </div>
+            <div class="pintro">
+                <h1>Meet Our Team!</h1>
+                <img class="img_fade" src="{% static 'images/pic.PNG' %}">
+                <p class="left">Aarya,<br><br>19 years<br><br>Dreams of owning a jacuzzi</p>
+                <img class="second" src="{% static 'images/pic2.PNG' %}">
+                <p class="right">Aryan,<br><br>20 years<br><br>Social Relations Expert</p>
+            </div>
+            
+        </div>
+            
+        
+        <div class="footer" style="background:url('../static/images/blackboard.jpg'); height:50px; padding:10px; color:#309292;">
+            <p>@Aarya & Aryan <br><a href ="/"> Home</a></p>
+        </div>
+    </body>
+</html>

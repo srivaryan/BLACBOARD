@@ -24,31 +24,52 @@
     </head>
 </html> -->
 {%load static%}
-<!doctype html>
+<!doctype html> 
 
 <html lang="en">
     <head>
         <title>LogIn</title>
         <!--External CSS Link-->
-        <link rel="stylesheet" href="{%static 'login.css'%}">
+        <link rel="stylesheet" href="{%static 'css/login.css'%}">
     </head>
-    <body>
+    {% comment %} <body>
         <div id="container">
             <div id="details_box">
-                <form action="#" id="stud_deet">
+                <form action="/signin" id="stud_deet" method="post">
+                {% csrf_token %}
                     
-                    <!--email-->
+                    {<!--email--> 
                     <label for="email" class="labels">Enter your email (your college ID):</label>
                     <input type="email" class="inputs" name="email" pattern="[0-9]+@nitdelhi.ac.in" id="mail" value="" required><br><br>
                     
-                    <label for="password" class="labels">Enter your password </label>
-                    <input type="password" class="inputs" name="password" id="pswrd" value=""><br><br>
-                    <button type="submit" id="btn_hidden" form="stud_deet" value="submit" ></button> 
-                    <button type="button"  class="btn" onclick="submit_btn()">Submit</button>
+                    <label for="password" class="labels">Enter your password: </label>
+                    <input type="text" class="inputs" name="password" id="pswrd" value=""><br><br> {% endcomment %}
+
+                    {% comment %} <button type="submit" id="btn_hidden" form="stud_deet" value="submit" ></button>  
+                    <button type="button"  class="btn" onclick="submit_btn()">Submit</button> {% endcomment %}
+
+                    {% comment %} <button type "submit"> Sign IN</button> {% endcomment %}
+                      {% comment %} {{form}} {% endcomment %}
+                {% comment %} </form>
+            </div>
+        </div> {% endcomment %}
+
+                <body>
+            <div class='loginbox'>
+                <img src='login.png' class='logging'>
+                <h1>Login Here</h1>
+
+                <form method="post" class="form-group">
+                    {% csrf_token%}
+                    {{form}}
+                    <button type="submit" class="btn btn-success">Login </button>
+                    <p>Don't have an account? Create one! <a href="/register"> here</a></p>
                 </form>
             </div>
-        </div>
-        <script src="../js/login.js"></script>
+            </body
+        {% comment %} <script src="/js/login.js"></script> {% endcomment %}
+        {% comment %} <script src="{% static 'js/home.js' %}"></script> {% endcomment %}
+        <script src="js/home.js"></script>
             
             
     </body>

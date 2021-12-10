@@ -1,31 +1,74 @@
-{% load static %}
+
 <!doctype html>
+{% load static %}
 <html lang="en">
     <head>
-        <title>Base page</title>
+        <title>Home Page</title>
         <!---External CSS Link-->
-        <link rel="stylesheet" href="{% static 'base.css' %}">
-        {% comment %} <link rel="stylesheet" href="C:/Users/Aryan Srivastava/OneDrive/Desktop/project 3rd sem/hosting/static/css/base.css"> {% endcomment %}
-        {% comment %} href = "{%static 'line' %} {% endcomment %}
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{%static 'css/homepage.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
+
     </head>
     <body>
-        <div id="container">
+        <!-- <div id="container">
+            
             <div id="header">
-                <i>Blackboard</i>
+                <div class="box">
+                Blackboard
+                </div>
             </div>
+        
             <div class="menu">
                 <a class="active" href="#"><i class="fa fa-fw fa-home"></i>Home</a>
-                <a href="/login"><i class="fa fa-fw fa-key"></i>Login</a>
-                <a href="/register"><i class="fa fa-fw fa-user"></i>Register</a>
+                <a href="login.html"><i class="fa fa-fw fa-key"></i>Login</a>
+                <a href="register.html"><i class="fa fa-fw fa-user"></i>Register</a>
             </div>
             <div id="content">
 
-                lorem ipsum dolor sit amet, consectetur adipis
+                bla bla bla 
+
             </div>
             
 
+        </div> -->
+        <div class="header" style="background:url('../static/images/blackboard.jpg');">
+            <menu>
+                <li><a class="headers" href="/about_us">About Us</a></li>
+                <li><a class="headers" href="/register">Register</a></li>
+                <li><a class="headers" href="/login">Login</a></li>
+            </menu>
+            <h1 style="font-size:150px;">Blackboard</h1>
+            <img src="{% static 'images/exam_icon.png' %}" class="first" >
+            <img src="{% static 'images/molecule.png' %}" class="molecule">
+            <!-- <img src="guy_w_comp.png" class="compguy"> -->
         </div>
-    </body>
-</html
+        <!-- <div class="container" style="background:url('../static/images/home_background.jpg') no-repeat ;background-size:cover; ">
+            <div class="pictures" style="display:flex;">
+            <img class="img_fade" src="{% static 'images/pic.PNG' %}">
+            <div class="intro">
+                <h2 class="chalk_text">About us!</h2>
+                <p>We're Aarya and Aryan, currently in 2nd year BTech CSE, NIT Delhi.</p>
+                
+                
+            </div>
+            
+            <div class="intro2">
+                <h2 class="chalk_text">About our Project!</h2>
+                <p>This project is aimed to make the lives of students easier.<br>It 
+                will make sure you don't forget your assignment or your class.<br>
+                Can you recall hassles of finding Previous Year Question Papers? 
+                Fret not! We've got you covered!<br>
+                Want to borrow a book from a senior or want to lend one to a needy junior? 
+                Just search or enter the details!<br><br>You've got doubts, and it's too late to contact the professor?
+                Post it on our Social Media Page!</p>
+            </div>
+            <img class="img_fade" src="{% static 'images/pic2.PNG' %}">
+        </div>
+            
+        </div> -->
+        <div class="footer" style="background:url('../static/images/blackboard.jpg'); height:50px; padding:10px; color:#309292;">
+            <p>@Aarya & Aryan</p>
+        </div>
+    </body>P
+</html>
